@@ -8,7 +8,8 @@ export default async function ImageSearchPage({searchParams}) {
   const API_KEY = process.env.API_KEY;
   const CONTEXT_KEY = process.env.CONTEXT_KEY;
   const searchTerm = searchParams.searchTerm;
-  const response = await fetch(`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${searchTerm}&searchType=image`);
+  const startIndex = searchParams.start || '1';
+  const response = await fetch(`https://www.googleapis.com/customsearch/v1?key=${API_KEY}&cx=${CONTEXT_KEY}&q=${searchTerm}&searchType=image&start=${startIndex}`);
   
   if (!response.ok) {
     console.log(response);
