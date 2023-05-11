@@ -15,7 +15,7 @@ export default function HomeSearch() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (!input) return;
+    if (!input.trim()) return;
 
     router.push(`/search/web?searchTerm=${input}`);
   }
@@ -41,7 +41,7 @@ export default function HomeSearch() {
           type="text" 
           className='flex-grow outline-none focus:outline-none' 
           value={input}
-          onChange={e => setInput(e.target.value.trim())}
+          onChange={e => setInput(e.target.value)}
         />
         <BsFillMicFill className='text-lg' />
       </form>
